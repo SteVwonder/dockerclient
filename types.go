@@ -230,6 +230,8 @@ type Info struct {
 	MemTotal        int64
 	Name            string
 	Labels          []string
+	MaxIO           int64
+	CurrIO          int64
 }
 
 type ImageDelete struct {
@@ -306,12 +308,17 @@ type BlkioStats struct {
 	SectorsRecursive        []BlkioStatEntry `json:"sectors_recursive"`
 }
 
+type IoStats struct {
+	WriteKB  uint64 `json:"write_kb"`
+}
+
 type Stats struct {
 	Read         time.Time    `json:"read"`
 	NetworkStats NetworkStats `json:"network,omitempty"`
 	CpuStats     CpuStats     `json:"cpu_stats,omitempty"`
 	MemoryStats  MemoryStats  `json:"memory_stats,omitempty"`
 	BlkioStats   BlkioStats   `json:"blkio_stats,omitempty"`
+	IoStats      IoStats      `json:"io_stats,omitempty"`
 }
 
 type Ulimit struct {
