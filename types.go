@@ -198,9 +198,13 @@ type Event struct {
 }
 
 type Version struct {
-	Version   string
-	GitCommit string
-	GoVersion string
+	ApiVersion    string
+	Arch          string
+	GitCommit     string
+	GoVersion     string
+	KernelVersion string
+	Os            string
+	Version       string
 }
 
 type RespContainersCreate struct {
@@ -217,19 +221,38 @@ type Image struct {
 	VirtualSize int64
 }
 
+// Info is the struct returned by /info
+// The API is currently in flux, so Debug, MemoryLimit, SwapLimit, and
+// IPv4Forwarding are interfaces because in docker 1.6.1 they are 0 or 1 but in
+// master they are bools.
 type Info struct {
-	ID              string
-	Containers      int64
-	Driver          string
-	DriverStatus    [][]string
-	ExecutionDriver string
-	Images          int64
-	KernelVersion   string
-	OperatingSystem string
-	NCPU            int64
-	MemTotal        int64
-	Name            string
-	Labels          []string
+	ID                 string
+	Containers         int64
+	Driver             string
+	DriverStatus       [][]string
+	ExecutionDriver    string
+	Images             int64
+	KernelVersion      string
+	OperatingSystem    string
+	NCPU               int64
+	MemTotal           int64
+	Name               string
+	Labels             []string
+	Debug              interface{}
+	NFd                int64
+	NGoroutines        int64
+	SystemTime         time.Time
+	NEventsListener    int64
+	InitPath           string
+	InitSha1           string
+	IndexServerAddress string
+	MemoryLimit        interface{}
+	SwapLimit          interface{}
+	IPv4Forwarding     interface{}
+	DockerRootDir      string
+	HttpProxy          string
+	HttpsProxy         string
+	NoProxy            string
 	MaxIO           int64
 	CurrIO          int64
 }
