@@ -10,7 +10,6 @@ Merges with upstream repo | [0b57107](https://github.com/SteVwonder/dockerclient
 
 ## Paper Information
 Stephen Herbein, Ayush Dusia, Aaron Landwehr, Sean McDaniel, Jose Monsalve, Yang Yang, Seetharami R. Seelam, and Michela Taufer. Resource Management for Running HPC Applications in Container Clouds. In _Proceedings of 31st International Supercomputing Conference_, ISC, Leipzig, Germany, June 2016.
-*
 ```
 @inproceedings{Docker-ISC,
 author = {Stephen Herbein and Ayush Dusia and Aaron Landwehr and Sean McDaniel and Jose Monsalve and Yang Yang and Seetharami R. Seelam and Michela Taufer},
